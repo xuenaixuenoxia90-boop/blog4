@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="工具分享详情" css={['tool.css']}>
+<div class="container">
+    <!-- 左右留白 -->
+    <div class="side"></div>
+    <!-- 主区域 -->
+    <div class="main">
+        <!-- 顶部 -->
+        <div class="top">
+            <button class="back-btn" onclick="goBackToList('/tools')">
+                <span>←</span>
+                <span data-cn="返回" data-en="Back">返回</span>
+            </button>
+            <div class="header">
+                <h1 data-cn="工具分享" data-en="Tool Share">工具分享</h1>
+                <p data-cn="打造专属于你的最强挖洞环境！" data-en="Build your own strongest hacking environment!">打造专属于你的最强挖洞环境！</p>
+            </div>
+            <div class="language-box">
+                <button class="language-btn" id="currentLang"><span class="lang-icon">🌐</span><span class="lang-text">简体中文</span></button>
+                <div class="language-dropdown">
+                    <button class="language-item" onclick="switchLanguage('zh')">简体中文</button>
+                    <button class="language-item" onclick="switchLanguage('en')">English</button>
+                </div>
+            </div>
+        </div>
+        <!-- 内容 -->
+        <div class="content">
+            <!-- 工具展示 -->
+            <div class="tools">
+                <div class="tool-card">
+                    <div class="tool-image"><img src="https://picsum.photos/300/200?50"></div>
+                    <div class="tool-name" data-cn="Android 抓包环境" data-en="Android Packet Capture Environment">Android 抓包环境</div>
+                </div>
+            </div>
+            <!-- 说明 -->
+            <div class="desc-box">
+                <h2 data-cn="工具介绍" data-en="Tool Introduction">工具介绍</h2>
+                <p data-cn="本工具包包含安卓逆向与抓包环境搭建所需的所有组件，适用于 Web 与 APP 安全测试。包含 Frida、Xposed、Charles、BurpSuite 等常用工具的配置文件和使用教程。" data-en="This toolkit includes all components needed for Android reverse engineering and packet capture environment setup, suitable for Web and APP security testing. Includes configuration files and tutorials for commonly used tools such as Frida, Xposed, Charles, and BurpSuite.">本工具包包含安卓逆向与抓包环境搭建所需的所有组件，适用于 Web 与 APP 安全测试。包含 Frida、Xposed、Charles、BurpSuite 等常用工具的配置文件和使用教程。</p>
+                <p data-cn="适用于想要进行移动端安全测试的安全研究人员和渗透测试人员。" data-en="Suitable for security researchers and penetration testers who want to perform mobile security testing.">适用于想要进行移动端安全测试的安全研究人员和渗透测试人员。</p>
+            </div>
+            <!-- 教程链接 -->
+            <div class="links">
+                <h3 data-cn="相关教程" data-en="Related Tutorials">相关教程</h3>
+                <a href="#" data-cn="📺 Android 抓包环境搭建教程" data-en=" Android Packet Capture Environment Setup Tutorial">📺 Android 抓包环境搭建教程</a>
+                <a href="#" data-cn="📺 Frida Hook 入门指南" data-en=" Frida Hook Beginner's Guide"> Frida Hook 入门指南</a>
+                <a href="#" data-cn="📺 逆向分析基础" data-en="📺 Reverse Analysis Basics">📺 逆向分析基础</a>
+            </div>
+            <div class="bottom-space"></div>
+        </div>
+    </div>
+    <!-- 右侧留白 -->
+    <div class="side"></div>
+</div>
+</BaseLayout>

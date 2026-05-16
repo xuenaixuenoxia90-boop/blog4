@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="工具分享" css={['tools.css']}>
+<div class="container">
+    <!-- 左侧留空 -->
+    <div class="side-space"></div>
+    <!-- 主体 -->
+    <div class="main">
+        <!-- 顶部 -->
+        <div class="top-bar">
+            <!-- 返回 -->
+            <button class="back-btn" onclick="goBackToHome()">
+                <span>←</span>
+                <span data-cn="返回" data-en="Back">返回</span>
+            </button>
+            <!-- 标题 -->
+            <div class="header">
+                <h1 data-cn="工具分享" data-en="Tool Share">工具分享</h1>
+                <p data-cn="打造专属于你的最强挖洞环境！" data-en="Build your own strongest hacking environment!">打造专属于你的最强挖洞环境！</p>
+            </div>
+            <!-- 语言切换 -->
+            <div class="language-box">
+                <button class="language-btn" id="currentLang"><span class="lang-icon">🌐</span><span class="lang-text">简体中文</span></button>
+                <div class="language-dropdown">
+                    <button class="language-item" onclick="switchLanguage('zh')">简体中文</button>
+                    <button class="language-item" onclick="switchLanguage('en')">English</button>
+                </div>
+            </div>
+        </div>
+        <!-- 搜索 -->
+        <div class="toolbar">
+            <input type="text" id="searchInput" placeholder="请输入关键字..."/>
+            <button class="search-btn" data-cn=" 搜索" data-en="🔍 Search">🔍 搜索</button>
+        </div>
+        <!-- 工具列表 -->
+        <div class="tool-grid">
+            <div class="card" onclick="navigateTo('/tool')">
+                <img src="https://picsum.photos/400/300?1">
+                <div class="card-content">
+                    <h3 data-cn="Android 抓包环境" data-en="Android Packet Capture Environment">Android 抓包环境</h3>
+                    <p data-cn="安卓逆向与抓包环境搭建，适用于 Web 与 APP 安全测试。" data-en="Android reverse engineering and packet capture environment for Web and APP security testing.">安卓逆向与抓包环境搭建，适用于 Web 与 APP 安全测试。</p>
+                </div>
+            </div>
+            <div class="card" onclick="navigateTo('/tool')">
+                <img src="https://picsum.photos/400/300?2">
+                <div class="card-content">
+                    <h3 data-cn="BurpSuite 插件包" data-en="BurpSuite Plugin Pack">BurpSuite 插件包</h3>
+                    <p data-cn="常用 Burp 插件整合，提高漏洞测试效率。" data-en="Integrated Burp plugins to improve vulnerability testing efficiency.">常用 Burp 插件整合，提高漏洞测试效率。</p>
+                </div>
+            </div>
+            <div class="card" onclick="navigateTo('/tool')">
+                <img src="https://picsum.photos/400/300?3">
+                <div class="card-content">
+                    <h3 data-cn="红队信息收集工具" data-en="Red Team Recon Tools">红队信息收集工具</h3>
+                    <p data-cn="域名、资产、指纹识别等常见信息收集工具合集。" data-en="Collection of reconnaissance tools for domains, assets and fingerprint identification.">域名、资产、指纹识别等常见信息收集工具合集。</p>
+                </div>
+            </div>
+            <div class="card" onclick="navigateTo('/tool')">
+                <img src="https://picsum.photos/400/300?4">
+                <div class="card-content">
+                    <h3 data-cn="漏洞扫描脚本合集" data-en="Vulnerability Scan Scripts">漏洞扫描脚本合集</h3>
+                    <p data-cn="常见 Web 漏洞扫描脚本，包括 SQL、XSS 等检测。" data-en="Common Web vulnerability scanning scripts including SQL and XSS detection.">常见 Web 漏洞扫描脚本，包括 SQL、XSS 等检测。</p>
+                </div>
+            </div>
+            <div class="card" onclick="navigateTo('/tool')">
+                <img src="https://picsum.photos/400/300?5">
+                <div class="card-content">
+                    <h3 data-cn="Linux 提权工具箱" data-en="Linux Privilege Escalation Toolkit">Linux 提权工具箱</h3>
+                    <p data-cn="Linux 权限提升辅助工具，支持自动化检测。" data-en="Linux privilege escalation tools with automated detection support.">Linux 权限提升辅助工具，支持自动化检测。</p>
+                </div>
+            </div>
+            <div class="card" onclick="navigateTo('/tool')">
+                <img src="https://picsum.photos/400/300?6">
+                <div class="card-content">
+                    <h3 data-cn="WebShell 管理平台" data-en="WebShell Management Platform">WebShell 管理平台</h3>
+                    <p data-cn="WebShell 管理与流量伪装，支持多节点管理。" data-en="WebShell management and traffic disguise with multi-node support.">WebShell 管理与流量伪装，支持多节点管理。</p>
+                </div>
+            </div>
+        </div>
+        <!-- 分页 -->
+        <div class="pagination">
+            <button class="page">&lt;</button>
+            <button class="page active">1</button>
+            <button class="page">2</button>
+            <button class="page">&gt;</button>
+        </div>
+    </div>
+    <!-- 右侧留空 -->
+    <div class="side-space"></div>
+</div>
+</BaseLayout>

